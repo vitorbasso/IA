@@ -28,9 +28,6 @@ public class Ambiente {
         
             aspirator = new Aspirador(quadradoDireito);
             
-            quadradoEsquerdo.setObserver(aspirator);
-            quadradoDireito.setObserver(aspirator);
-            
             this.acao = 0;
             
             this.fim = false;
@@ -70,16 +67,25 @@ public class Ambiente {
                 System.out.println("\n O que gostaria de fazer?");
                 System.out.println("1 - sujar quadrado Esquerdo.");
                 System.out.println("2 - sujar quadrado Direito.");
+                System.out.println("3 - sujar os dois quadrados.");
                 System.out.println("(qualquer outro numero) - terminar o programa.\n");
                 setAcao(input.nextInt());
                 switch(getAcao()){
                     case 1:
                         System.out.println("Sujando o quadrado esquerdo:");
                         quadradoEsquerdo.sujar();
+                        aspirator.ligarCerebro();
                         break;
                     case 2:
                         System.out.println("Sujando o quadrado direito:");
                         quadradoDireito.sujar();
+                        aspirator.ligarCerebro();
+                        break;
+                    case 3:
+                        System.out.println("Sujando os dois quadrados:");
+                        quadradoDireito.sujar();
+                        quadradoEsquerdo.sujar();
+                        aspirator.ligarCerebro();
                         break;
                     default:
                         setFim(true);

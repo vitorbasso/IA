@@ -14,17 +14,12 @@ public class Quadrado {
     private Posicao name;
     private int sujo;
     private Quadrado vizinho;
-    private Aspirador aspirador;
     
     public Quadrado(int sujo, Posicao name){
         this.sujo = sujo;
         this.name = name;
         this.vizinho = null;
         System.out.println("Quadrado " + name + " esta " + getEstado() + "\n");
-    }
-    
-    public void setObserver(Aspirador aspirator){
-        this.aspirador = aspirator;
     }
     
     public void setVizinho(Quadrado vizinho){
@@ -45,7 +40,6 @@ public class Quadrado {
     
     public void sujar(){
         this.sujo = 1;
-        this.aspirador.ligarCerebro();
     }
     
     public void limpar(){
